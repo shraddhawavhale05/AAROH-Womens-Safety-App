@@ -1,0 +1,366 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(self)">
+    <title>AAROH - Women's Safety</title><style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f7f2ff;
+        color: #302047;
+    }
+
+    header {
+        background: #6c3bb8;
+        color: white;
+        text-align: center;
+        padding: 25px 15px;
+        border-radius: 0 0 25px 25px;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 32px;
+        letter-spacing: 3px;
+    }
+
+    header p {
+        margin-bottom: 0;
+    }
+
+    main {
+        max-width: 420px;
+        margin: 25px auto;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .welcome {
+        font-size: 21px;
+        font-weight: bold;
+    }
+
+    .sos-button {
+        width: 155px;
+        height: 155px;
+        border-radius: 50%;
+        border: 7px solid #f4c7d8;
+        background: #d6285b;
+        color: white;
+        font-size: 28px;
+        font-weight: bold;
+        margin: 25px auto;
+        cursor: pointer;
+        box-shadow: 0 5px 15px #d8b5e8;
+    }
+
+    .sos-button:active {
+        transform: scale(0.96);
+    }
+
+    .note {
+        color: #6c5b7b;
+        font-size: 13px;
+    }
+
+    .feature {
+        display: block;
+        width: 100%;
+        background: white;
+        color: #45236f;
+        border: 1px solid #e4d6f5;
+        border-radius: 13px;
+        padding: 16px;
+        margin: 12px 0;
+        font-size: 16px;
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .feature:hover {
+        background: #eee3ff;
+    }
+
+    footer {
+        text-align: center;
+        padding: 20px;
+        color: #766487;
+        font-size: 13px;
+    }
+    /* AAROH Professional Design Upgrade */
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f3e8ff, #e0c3fc, #f8f4ff);
+    color: #32145c;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #6a1b9a;
+    text-align: center;
+    font-size: 34px;
+    letter-spacing: 2px;
+}
+
+h2, h3 {
+    color: #7b2cbf;
+}
+
+button {
+    border: none;
+    border-radius: 14px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    width: 100%;
+    background: linear-gradient(135deg, #8e24aa, #5e35b1);
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(94, 53, 177, 0.2);
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+.feature {
+    border-radius: 16px;
+    padding: 18px;
+    margin: 10px 0;
+    background: white;
+    color: #6a1b9a;
+    border: 1px solid #e1bee7;
+    box-shadow: 0 4px 12px rgba(80, 30, 120, 0.1);
+}
+
+.feature:hover {
+    background: #f3e5f5;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 14px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
+</style>
+
+</head><body><header>
+    <h1>💜 AAROH</h1>
+    <p>Your Safety. Your Strength. Your Voice.</p>
+</header>
+
+<main>
+    <p class="welcome">You Deserve to Feel Safe.</p>
+    <p>Stay aware. Stay connected. Stay safe.</p>
+
+    <button class="sos-button" onclick="showSOSMessage()">
+        SOS
+    </button>
+
+    <p class="note">
+        Demo button only — no emergency alert is sent.
+    </p>
+
+    <button class="feature" onclick="showContacts()">
+        👥 &nbsp; Emergency Contacts
+    </button>
+
+    <button class="feature" onclick="showCheckIn()">
+        📍 &nbsp; Safety Check-in
+    </button>
+
+    <button class="feature" onclick="showSafetyTips()">
+        🛡️ &nbsp; Safety Tips
+    </button>
+</main>
+
+<footer>
+    AAROH — Building a Safer Tomorrow 💜
+</footer>
+
+<script>
+    function showSOSMessage() {
+alert("AAROH SOS button is working!");
+
+if (!navigator.geolocation) {
+    alert("Location is not supported by this browser.");
+    return;
+}
+
+navigator.geolocation.getCurrentPosition(
+    function(position) {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+        alert("Accuracy: " + position.coords.accuracy + " meters");
+
+        alert(
+    "Latitude: " + lat +
+    "\nLongitude: " + lon +
+    "\nAccuracy: " + position.coords.accuracy + " meters"
+);
+
+        alert("Your Location:\nLatitude: " + lat +
+              "\nLongitude: " + lon);
+
+        const mapUrl = "https://www.google.com/maps?q=" + lat + "," + lon;
+        window.location.assign(mapUrl);
+    },
+    function(error) {
+    alert("Location Error: " + error.message);
+},
+{
+    enableHighAccuracy: true,
+    timeout: 20000,
+    maximumAge: 0
+}
+);
+}
+async function showContacts() {
+    const choice = prompt(
+        "AAROH - Emergency Contacts\n\n" +
+        "1. View Saved Contacts\n" +
+        "2. Add New Contact\n\n" +
+        "Enter 1 or 2:"
+    );
+
+    if (choice === "1") {
+        try {
+            const response = await fetch("/contacts");
+            const contacts = await response.json();
+
+            if (contacts.length === 0) {
+                alert("No emergency contacts saved yet.");
+                return;
+            }
+
+            let message = "YOUR EMERGENCY CONTACTS\n\n";
+
+            contacts.forEach((contact, index) => {
+                message += (index + 1) + ". " + contact.name +
+                    "\nPhone: " + contact.phone + "\n\n";
+            });
+
+            alert(message);
+
+        } catch (error) {
+            alert("Could not load contacts. Please try again.");
+            console.error(error);
+        }
+
+    } else if (choice === "2") {
+        const name = prompt("Enter trusted contact's name:");
+
+        if (!name || !name.trim()) {
+            return;
+        }
+
+        const phone = prompt("Enter mobile number:");
+
+        if (!phone || !phone.trim()) {
+            return;
+        }
+
+        try {
+            const response = await fetch("/contacts", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name.trim(),
+                    phone: phone.trim()
+                })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                alert("Emergency Contact saved successfully!");
+            } else {
+                alert("Error: " + (result.error || "Could not save contact."));
+            }
+
+        } catch (error) {
+            alert("Could not connect to AAROH Backend.");
+            console.error(error);
+        }
+
+    } else if (choice !== null) {
+        alert("Please enter 1 or 2.");
+    }
+}
+  function showCheckIn() {
+const answer = confirm(
+"AAROH Safety Check-in\n\n" +
+"Have you reached your destination safely?"
+);
+
+if (answer) {
+    alert(
+        "Glad you are safe! 💜\n\n" +
+        "Your safety check-in is complete."
+    );
+} else {
+    alert(
+        "Please contact someone you trust if you need help."
+    );
+}
+
+}
+
+   function showSafetyTips() {
+    let choice = prompt(
+        "💜 AAROH SAFETY TIPS 💜\n\n" +
+        "1. Everyday Safety\n" +
+        "2. Travel Safety\n" +
+        "3. Emergency Safety\n\n" +
+        "Enter 1, 2, or 3:"
+    );
+
+    if (choice === "1") {
+        alert(
+            "🌸 EVERYDAY SAFETY\n\n" +
+            "• Stay aware of your surroundings.\n" +
+            "• Avoid sharing personal information with strangers.\n" +
+            "• If you feel unsafe, move to a safe public place.\n" +
+            "• Inform someone you trust when needed."
+        );
+    } 
+    else if (choice === "2") {
+        alert(
+            "🚕 TRAVEL SAFETY\n\n" +
+            "• Share your journey details with someone you trust.\n" +
+            "• Check vehicle and driver details when possible.\n" +
+            "• Avoid waiting alone in isolated places.\n" +
+            "• Keep your phone charged."
+        );
+    } 
+    else if (choice === "3") {
+        alert(
+            "🚨 EMERGENCY SAFETY\n\n" +
+            "• In India, call 112 for emergency assistance.\n" +
+            "• Contact a trusted person.\n" +
+            "• Move to a safer place if possible.\n" +
+            "• Ask nearby people for help when needed."
+        );
+    } 
+    else if (choice !== null) {
+        alert("Please enter 1, 2, or 3.");
+    }
+}
+</script>
+
+</body>
+</html>
