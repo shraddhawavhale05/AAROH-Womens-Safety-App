@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAROH | Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #240046, #7b2cbf, #e0aaff);
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 390px;
+            padding: 35px 28px;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 15px 45px rgba(20, 0, 40, 0.35);
+            text-align: center;
+        }
+
+        .logo {
+            width: 78px;
+            height: 78px;
+            margin: 0 auto 12px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background: linear-gradient(135deg, #5a189a, #c77dff);
+            font-size: 35px;
+            box-shadow: 0 5px 20px rgba(90, 24, 154, 0.35);
+        }
+
+        h1 {
+            color: #ffffff;
+            background: #5a189a;
+            padding: 8px;
+            border-radius: 10px;
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            color: #7b2cbf;
+            font-size: 13px;
+            margin-bottom: 28px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #3c096c;
+            margin-bottom: 22px;
+            font-size: 23px;
+        }
+
+        .input-group {
+            text-align: left;
+            margin-bottom: 17px;
+        }
+
+        label {
+            display: block;
+            color: #3c096c;
+            margin-bottom: 7px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #d8b4fe;
+            border-radius: 11px;
+            outline: none;
+            font-size: 15px;
+            background: #fcfaff;
+        }
+
+        input:focus {
+            border-color: #7b2cbf;
+            box-shadow: 0 0 0 3px rgba(123, 44, 191, 0.12);
+        }
+
+        .forgot {
+            text-align: right;
+            margin: -4px 0 20px;
+        }
+
+        .forgot a,
+        .signup a {
+            color: #7b2cbf;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-btn {
+            width: 100%;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            color: white;
+            background: linear-gradient(90deg, #5a189a, #9d4edd);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .login-btn:hover {
+            opacity: 0.9;
+        }
+
+        .signup {
+            margin-top: 22px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .note {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="login-card">
+        <div class="logo" aria-label="AAROH safety logo">🛡️</div>
+
+        <h1>AAROH</h1>
+        <p class="tagline">YOUR SAFETY, OUR PRIORITY</p>
+
+        <h2>Welcome Back</h2>
+
+        <<form id="loginForm" action="/login" method="POST">
+    <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        required
+    ><input
+    type="password"
+    name="password"
+    placeholder="Password"
+    required
+>
+
+<button type="submit">LOGIN</button>
+
+</form>"login-btn" type="submit">LOGIN</button>
+        </form>
+
+        <p class="signup">
+            Don't have an account?
+            <a href="#" id="signupLink">Create Account</a>
+        </p>
+
+        <p class="note">AAROH • Stay Safe, Stay Strong</p>
+    </main>
+
+    <script>
+        
+
+        document.getElementById("forgotLink").addEventListener("click", function(event) {
+            event.preventDefault();
+            alert("Forgot Password feature will be connected in the next step.");
+        });
+
+        document.getElementById("signupLink").addEventListener("click", function(event) {
+            event.preventDefault();
+            alert("Create Account feature will be connected in the next step.");
+        });
+    </script>
+</body>
+</html>
