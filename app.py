@@ -320,6 +320,9 @@ def send_sos():
         "results": results
     })
 
+init_db()
+init_users_table()
+
 if __name__ == "__main__":
     init_db()
     init_users_table()
