@@ -1,363 +1,712 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Permissions-Policy" content="geolocation=(self)">
-    <title>AAROH - Women's Safety</title><style>
-    * {
-        box-sizing: border-box;
-    }
+    <title>AAROH | Women's Safety</title>
 
-    body {
-        margin: 0;
-        font-family: Arial, sans-serif;
-        background: #f7f2ff;
-        color: #302047;
-    }
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    header {
-        background: #6c3bb8;
-        color: white;
-        text-align: center;
-        padding: 25px 15px;
-        border-radius: 0 0 25px 25px;
-    }
+        :root {
+            --purple: #6c35c9;
+            --dark-purple: #432080;
+            --light-purple: #f2edff;
+            --pink: #f7e8ff;
+            --text: #302744;
+            --muted: #746b83;
+            --white: #ffffff;
+            --green: #16865b;
+            --red: #d73555;
+        }
 
-    header h1 {
-        margin: 0;
-        font-size: 32px;
-        letter-spacing: 3px;
-    }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #f5f0ff, #fff4fb);
+            color: var(--text);
+            min-height: 100vh;
+        }
 
-    header p {
-        margin-bottom: 0;
-    }
+        header {
+            background: linear-gradient(120deg, #432080, #7b42d6);
+            color: white;
+            padding: 22px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            box-shadow: 0 5px 20px #43208025;
+        }
 
-    main {
-        max-width: 420px;
-        margin: 25px auto;
-        padding: 20px;
-        text-align: center;
-    }
+        .brand {
+            font-size: 29px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
 
-    .welcome {
-        font-size: 21px;
-        font-weight: bold;
-    }
+        .tagline {
+            font-size: 12px;
+            margin-top: 5px;
+            opacity: .9;
+        }
 
-    .sos-button {
-        width: 155px;
-        height: 155px;
-        border-radius: 50%;
-        border: 7px solid #f4c7d8;
-        background: #d6285b;
-        color: white;
-        font-size: 28px;
-        font-weight: bold;
-        margin: 25px auto;
-        cursor: pointer;
-        box-shadow: 0 5px 15px #d8b5e8;
-    }
+        .logout {
+            color: white;
+            text-decoration: none;
+            border: 1px solid #ffffff90;
+            border-radius: 10px;
+            padding: 10px 16px;
+            font-size: 14px;
+        }
 
-    .sos-button:active {
-        transform: scale(0.96);
-    }
+        .logout:hover {
+            background: #ffffff20;
+        }
 
-    .note {
-        color: #6c5b7b;
-        font-size: 13px;
-    }
+        .container {
+            max-width: 1100px;
+            width: 92%;
+            margin: 30px auto;
+        }
 
-    .feature {
-        display: block;
-        width: 100%;
-        background: white;
-        color: #45236f;
-        border: 1px solid #e4d6f5;
-        border-radius: 13px;
-        padding: 16px;
-        margin: 12px 0;
-        font-size: 16px;
-        text-align: left;
-        cursor: pointer;
-    }
+        .welcome {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px #4020600c;
+            margin-bottom: 25px;
+        }
 
-    .feature:hover {
-        background: #eee3ff;
-    }
+        .welcome h1 {
+            font-size: clamp(24px, 4vw, 34px);
+            margin-bottom: 10px;
+        }
 
-    footer {
-        text-align: center;
-        padding: 20px;
-        color: #766487;
-        font-size: 13px;
-    }
-    /* AAROH Professional Design Upgrade */
+        .welcome p {
+            color: var(--muted);
+            line-height: 1.6;
+        }
 
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #f3e8ff, #e0c3fc, #f8f4ff);
-    color: #32145c;
-    margin: 0;
-    padding: 20px;
-}
+        .badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 7px 12px;
+            border-radius: 30px;
+            background: var(--light-purple);
+            color: var(--dark-purple);
+            font-size: 12px;
+            font-weight: bold;
+        }
 
-h1 {
-    color: #6a1b9a;
-    text-align: center;
-    font-size: 34px;
-    letter-spacing: 2px;
-}
+        .section-title {
+            margin: 27px 0 15px;
+            font-size: 21px;
+        }
 
-h2, h3 {
-    color: #7b2cbf;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+        }
 
-button {
-    border: none;
-    border-radius: 14px;
-    padding: 14px 20px;
-    margin: 8px 0;
-    width: 100%;
-    background: linear-gradient(135deg, #8e24aa, #5e35b1);
+        .card {
+            background: white;
+            padding: 22px;
+            border-radius: 18px;
+            box-shadow: 0 7px 25px #4020600c;
+            border: 1px solid #eee7fb;
+        }
+
+        .icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 9px;
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 17px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px 14px;
+            border: none;
+            border-radius: 10px;
+            background: var(--purple);
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        button:hover {
+            background: var(--dark-purple);
+            transform: translateY(-1px);
+        }
+
+        button:disabled {
+            opacity: .6;
+            cursor: wait;
+            transform: none;
+        }
+
+        .sos-card {
+            border: 2px solid #ffdce3;
+        }
+
+        .on {
+            .sos-button {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    background: linear-gradient(135deg, #ff4d8d, #b000b5, #6c35c9);
     color: white;
-    font-size: 16px;
+    font-size: 22px;
     font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(94, 53, 177, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px auto;
+    padding: 10px;
+    box-shadow: 0 0 0 8px #f7e8ff, 0 8px 25px rgba(108, 53, 201, 0.35);
+    transition: 0.3s;
 }
 
-button:active {
-    transform: scale(0.97);
+.sos-button:hover {
+    background: linear-gradient(135deg, #e60073, #8e00ad, #432080);
+    transform: scale(1.05);
 }
+        .safe-button {
+            background: var(--green);
+        }
 
-.feature {
-    border-radius: 16px;
-    padding: 18px;
-    margin: 10px 0;
-    background: white;
-    color: #6a1b9a;
-    border: 1px solid #e1bee7;
-    box-shadow: 0 4px 12px rgba(80, 30, 120, 0.1);
-}
+        .safe-button:hover {
+            background: #0b6743;
+        }
 
-.feature:hover {
-    background: #f3e5f5;
-}
+        .panel {
+            background: white;
+            padding: 22px;
+            border-radius: 18px;
+            margin-top: 22px;
+            box-shadow: 0 7px 25px #4020600c;
+            overflow-wrap: anywhere;
+        }
 
-@media (max-width: 600px) {
-    body {
-        padding: 14px;
-    }
+        .panel h2 {
+            margin-bottom: 15px;
+        }
 
-    h1 {
-        font-size: 28px;
-    }
-}
-</style>
+        .status {
+            margin-top: 15px;
+            padding: 13px;
+            border-radius: 10px;
+            background: var(--light-purple);
+            color: var(--dark-purple);
+            font-size: 14px;
+            line-height: 1.6;
+            overflow-wrap: anywhere;
+        }
 
-</head><body><header>
-    <h1>💜 AAROH</h1>
-    <p>Your Safety. Your Strength. Your Voice.</p>
+        .contact-item {
+            border: 1px solid #eee7fb;
+            padding: 14px;
+            border-radius: 12px;
+            margin-top: 10px;
+            line-height: 1.8;
+        }
+
+        .contact-item a {
+            color: var(--purple);
+            font-weight: bold;
+        }
+
+        .tips {
+            line-height: 2;
+            padding-left: 22px;
+        }
+
+        .small-note {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            padding: 25px 15px;
+            font-size: 12px;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media (max-width: 500px) {
+            header {
+                padding: 18px 5%;
+            }
+
+            .brand {
+                font-size: 25px;
+            }
+
+            .container {
+                margin-top: 20px;
+            }
+
+            .welcome, .card, .panel {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div>
+        <div class="brand">💜 AAROH</div>
+        <div class="tagline">YOUR SAFETY. YOUR STRENGTH. YOUR VOICE.</div>
+    </div>
+
+    <a href="/logout" class="logout">Logout ↗</a>
 </header>
 
-<main>
-    <p class="welcome">You Deserve to Feel Safe.</p>
-    <p>Stay aware. Stay connected. Stay safe.</p>
+<main class="container">
 
-    <button class="sos-button" onclick="showSOSMessage()">
-        SOS
-    </button>
+    <section class="welcome">
+        <h1>Welcome to AAROH 💜</h1>
+        <p>
+            Your personal safety companion. Manage your emergency contacts,
+            prepare an SOS alert and access your current location when needed.
+        </p>
+        <span class="badge">● PERSONAL SAFETY DASHBOARD</span>
+    </section>
 
-    <p class="note">
-        Demo button only — no emergency alert is sent.
-    </p>
+    <h2 class="section-title">Emergency & Safety</h2>
 
-    <button class="feature" onclick="showContacts()">
-        👥 &nbsp; Emergency Contacts
-    </button>
+    <section class="grid">
 
-    <button class="feature" onclick="showCheckIn()">
-        📍 &nbsp; Safety Check-in
-    </button>
+        <div class="card sos-card">
+            <div class="icon">🆘</div>
+            <h3>Emergency SOS</h3>
+            <p>
+                Get your current location and prepare an emergency message
+                for your saved contacts.
+            </p>
+            <button class="sos-button" id="sosButton"
+                    onclick="showSOSMessage()">
+                ACTIVATE SOS
+            </button>
+        </div>
 
-    <button class="feature" onclick="showSafetyTips()">
-        🛡️ &nbsp; Safety Tips
-    </button>
+        <div class="card">
+            <div class="icon">👥</div>
+            <h3>Emergency Contacts</h3>
+            <p>View the emergency contacts saved to your account.</p>
+            <button onclick="showContacts()">View Contacts</button>
+        </div>
+
+        <div class="card">
+            <div class="icon">➕</div>
+            <h3>Add Contact</h3>
+            <p>Save a trusted person's name and mobile number.</p>
+            <button onclick="showAddContactForm()">Add Contact</button>
+        </div>
+
+        <div class="card">
+            <div class="icon">📍</div>
+            <h3>Live Location</h3>
+            <p>Check the location provided by your device's browser.</p>
+            <button onclick="testLocation()">Test My Location</button>
+        </div>
+
+        <div class="card">
+            <div class="icon">💚</div>
+            <h3>Safety Check-in</h3>
+            <p>Record a local check-in to confirm that you are safe.</p>
+            <button class="safe-button" onclick="showCheckIn()">
+                I'm Safe
+            </button>
+        </div>
+
+        <div class="card">
+            <div class="icon">🛡️</div>
+            <h3>Safety Tips</h3>
+            <p>Review basic precautions for emergency situations.</p>
+            <button id="tipsButton" onclick="toggleSafetyTips()">
+                Show Safety Tips
+            </button>
+        </div>
+
+    </section>
+
+    <section class="panel" id="statusPanel" aria-live="polite">
+        <h2>Activity Status</h2>
+        <div id="mainStatus">
+            Welcome to AAROH. Choose an option above to get started.
+        </div>
+    </section>
+
+    <section class="panel" id="contactsPanel" hidden>
+        <h2>👥 Your Emergency Contacts</h2>
+        <div id="contactsList"></div>
+    </section>
+
+    <section class="panel" id="addContactPanel" hidden>
+        <h2>➕ Add Emergency Contact</h2>
+
+        <form id="contactForm">
+            <label for="contactName">Contact name</label>
+            <input id="contactName" name="name" required maxlength="100"
+                   placeholder="Enter full name"
+                   style="width:100%;padding:12px;margin:8px 0 15px;
+                          border:1px solid #d8cbea;border-radius:9px;">
+
+            <label for="contactPhone">Mobile number</label>
+            <input id="contactPhone" name="phone" required
+                   type="tel" maxlength="20"
+                   placeholder="Enter mobile number"
+                   style="width:100%;padding:12px;margin:8px 0 15px;
+                          border:1px solid #d8cbea;border-radius:9px;">
+
+            <button type="submit">Save Emergency Contact</button>
+        </form>
+
+        <p class="small-note">
+            Only save contacts belonging to people who have agreed to be
+            your emergency contacts.
+        </p>
+    </section>
+
+    <section class="panel" id="tipsPanel" hidden>
+        <h2>🛡️ Personal Safety Tips</h2>
+        <ul class="tips">
+            <li>Keep your phone charged whenever possible.</li>
+            <li>Save trusted emergency contacts in advance.</li>
+            <li>Share your journey details with someone you trust.</li>
+            <li>If you are in immediate danger in India, call 112 if safe to do so.</li>
+            <li>Remember that location and message delivery may fail if your
+                device has no signal or internet access.</li>
+        </ul>
+    </section>
+
 </main>
 
 <footer>
-    AAROH — Building a Safer Tomorrow 💜
+    AAROH Women's Safety Project · Stay Aware. Stay Safe. 💜
+    <br>
+    Prototype: always verify emergency communication before relying on it.
 </footer>
 
 <script>
-    function showSOSMessage() {
-alert("AAROH SOS button is working!");
+"use strict";
 
-if (!navigator.geolocation) {
-    alert("Location is not supported by this browser.");
-    return;
+const mainStatus = document.getElementById("mainStatus");
+const contactsPanel = document.getElementById("contactsPanel");
+const addContactPanel = document.getElementById("addContactPanel");
+const tipsPanel = document.getElementById("tipsPanel");
+
+function setStatus(message, isError = false) {
+    mainStatus.textContent = message;
+    mainStatus.style.color = isError ? "#b51e3c" : "#432080";
 }
 
-navigator.geolocation.getCurrentPosition(
-    function(position) {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-        alert("Accuracy: " + position.coords.accuracy + " meters");
-
-        alert(
-    "Latitude: " + lat +
-    "\nLongitude: " + lon +
-    "\nAccuracy: " + position.coords.accuracy + " meters"
-);
-
-        alert("Your Location:\nLatitude: " + lat +
-              "\nLongitude: " + lon);
-
-        const mapUrl = "https://www.google.com/maps?q=" + lat + "," + lon;
-        window.location.assign(mapUrl);
-    },
-    function(error) {
-    alert("Location Error: " + error.message);
-},
-{
-    enableHighAccuracy: true,
-    timeout: 20000,
-    maximumAge: 0
+function hidePanels() {
+    contactsPanel.hidden = true;
+    addContactPanel.hidden = true;
+    tipsPanel.hidden = true;
 }
-);
-}
-async function showContacts() {
-    const choice = prompt(
-        "AAROH - Emergency Contacts\n\n" +
-        "1. View Saved Contacts\n" +
-        "2. Add New Contact\n\n" +
-        "Enter 1 or 2:"
-    );
 
-    if (choice === "1") {
-        try {
-            const response = await fetch("/contacts");
-            const contacts = await response.json();
+function showContacts() {
+    hidePanels();
+    contactsPanel.hidden = false;
 
-            if (contacts.length === 0) {
-                alert("No emergency contacts saved yet.");
+    const list = document.getElementById("contactsList");
+    list.textContent = "Loading contacts...";
+
+    fetch("/contacts")
+        .then(async response => {
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || "Unable to load contacts.");
+            }
+
+            return data;
+        })
+        .then(contacts => {
+            list.replaceChildren();
+
+            if (!Array.isArray(contacts) || contacts.length === 0) {
+                list.textContent = "No emergency contacts saved yet.";
+                setStatus("Add at least one emergency contact to get started.");
                 return;
             }
 
-            let message = "YOUR EMERGENCY CONTACTS\n\n";
+            contacts.forEach(contact => {
+                const item = document.createElement("div");
+                item.className = "contact-item";
 
-            contacts.forEach((contact, index) => {
-                message += (index + 1) + ". " + contact.name +
-                    "\nPhone: " + contact.phone + "\n\n";
+                const name = document.createElement("strong");
+                name.textContent = contact.name;
+
+                const phone = document.createElement("div");
+                phone.textContent = contact.phone;
+
+                item.append(name, phone);
+                list.appendChild(item);
             });
 
-            alert(message);
+            setStatus("Loaded " + contacts.length + " emergency contact(s).");
+        })
+        .catch(error => {
+            list.textContent = error.message;
+            setStatus(error.message, true);
+        });
+}
 
-        } catch (error) {
-            alert("Could not load contacts. Please try again.");
-            console.error(error);
+function showAddContactForm() {
+    hidePanels();
+    addContactPanel.hidden = false;
+    setStatus("Enter the name and mobile number of your trusted contact.");
+}
+
+document.getElementById("contactForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("contactName").value.trim();
+    const phone = document.getElementById("contactPhone").value.trim();
+
+    if (!name || !phone) {
+        setStatus("Please enter both name and mobile number.", true);
+        return;
+    }
+
+    try {
+        const response = await fetch("/contacts", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, phone })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Could not save contact.");
         }
 
-    } else if (choice === "2") {
-        const name = prompt("Enter trusted contact's name:");
+        document.getElementById("contactForm").reset();
+        setStatus(data.message || "Emergency contact saved successfully.");
 
-        if (!name || !name.trim()) {
+        showContacts();
+    } catch (error) {
+        setStatus(error.message + " Check that you are logged in.", true);
+    }
+});
+
+function getCurrentLocation() {
+    return new Promise((resolve, reject) => {
+        if (!("geolocation" in navigator)) {
+            reject(new Error("This browser does not support location."));
             return;
         }
 
-        const phone = prompt("Enter mobile number:");
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                resolve({
+                    lat: position.coords.latitude,
+                    lon: position.coords.longitude,
+                    accuracy: position.coords.accuracy
+                });
+            },
+            error => {
+                let message = "Unable to get your location.";
 
-        if (!phone || !phone.trim()) {
-            return;
-        }
+                if (error.code === 1) {
+                    message = "Location permission denied. Allow location access in your browser.";
+                } else if (error.code === 2) {
+                    message = "Your current location is unavailable. Check GPS and device settings.";
+                } else if (error.code === 3) {
+                    message = "Location request timed out. Try again.";
+                }
 
-        try {
-            const response = await fetch("/contacts", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    name: name.trim(),
-                    phone: phone.trim()
-                })
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                alert("Emergency Contact saved successfully!");
-            } else {
-                alert("Error: " + (result.error || "Could not save contact."));
+                reject(new Error(message));
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 20000,
+                maximumAge: 0
             }
+        );
+    });
+}
 
-        } catch (error) {
-            alert("Could not connect to AAROH Backend.");
-            console.error(error);
-        }
+async function testLocation() {
+    setStatus("Requesting your current location...");
 
-    } else if (choice !== null) {
-        alert("Please enter 1 or 2.");
+    try {
+        const location = await getCurrentLocation();
+
+        const mapUrl =
+            "https://www.google.com/maps?q=" +
+            location.lat + "," + location.lon;
+
+        setStatus(
+            "Location received. Accuracy is approximately " +
+            Math.round(location.accuracy) +
+            " metres. Open the map below to check it."
+        );
+
+        const link = document.createElement("a");
+        link.href = mapUrl;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "Open my location in Google Maps";
+
+        mainStatus.appendChild(document.createElement("br"));
+        mainStatus.appendChild(link);
+
+    } catch (error) {
+        setStatus(error.message, true);
     }
 }
-  function showCheckIn() {
-const answer = confirm(
-"AAROH Safety Check-in\n\n" +
-"Have you reached your destination safely?"
-);
 
-if (answer) {
-    alert(
-        "Glad you are safe! 💜\n\n" +
-        "Your safety check-in is complete."
-    );
-} else {
-    alert(
-        "Please contact someone you trust if you need help."
+async function showSOSMessage() {
+    const button = document.getElementById("sosButton");
+    button.disabled = true;
+    hidePanels();
+
+    try {
+        setStatus("SOS preparation started. Loading your emergency contacts...");
+
+        const response = await fetch("/contacts");
+        const contacts = await response.json();
+
+        if (!response.ok) {
+            throw new Error(contacts.error || "Could not load emergency contacts.");
+        }
+
+        if (!Array.isArray(contacts) || contacts.length === 0) {
+            setStatus(
+                "No emergency contacts saved. Add a trusted contact before testing SOS.",
+                true
+            );
+            showAddContactForm();
+            return;
+        }
+
+        setStatus("Getting your current location...");
+
+        const location = await getCurrentLocation();
+
+        const mapUrl =
+            "https://www.google.com/maps?q=" +
+            location.lat + "," + location.lon;
+
+        const message =
+            "AAROH EMERGENCY ALERT! I may need help. " +
+            "My current location: " + mapUrl;
+
+        setStatus(
+            "Location obtained. Choose a contact below to open a prepared SMS. " +
+            "Review the message and tap Send in your messaging app."
+        );
+
+        const result = document.createElement("div");
+        result.className = "panel";
+        result.style.marginTop = "15px";
+
+        const heading = document.createElement("h3");
+        heading.textContent = "Emergency SMS options";
+        result.appendChild(heading);
+
+        const mapLink = document.createElement("a");
+        mapLink.href = mapUrl;
+        mapLink.target = "_blank";
+        mapLink.rel = "noopener noreferrer";
+        mapLink.textContent = "View the location being shared";
+        mapLink.style.display = "block";
+        mapLink.style.margin = "12px 0";
+        result.appendChild(mapLink);
+
+        contacts.forEach(contact => {
+            const link = document.createElement("a");
+
+            link.href =
+                "sms:" + encodeURIComponent(contact.phone) +
+                "?body=" + encodeURIComponent(message);
+                link.style.cursor = "pointer";
+
+            link.textContent = "📩 Prepare SMS for " + contact.name;
+            link.style.display = "block";
+            link.style.padding = "12px";
+            link.style.marginTop = "10px";
+            link.style.borderRadius = "10px";
+            link.style.background = "#f2edff";
+            link.style.color = "#432080";
+            link.style.fontWeight = "bold";
+
+            result.appendChild(link);
+        });
+
+        result.appendChild(document.createTextNode(
+            "Note: this opens your device's messaging app. It does not send the SMS automatically."
+        ));
+
+        mainStatus.appendChild(document.createElement("br"));
+        mainStatus.appendChild(result);
+
+    } catch (error) {
+        setStatus(
+            "SOS could not be prepared: " + error.message +
+            " This button does not itself contact emergency services.",
+            true
+        );
+    } finally {
+        button.disabled = false;
+    }
+}
+
+function showCheckIn() {
+    const now = new Date();
+
+    setStatus(
+        "Safety check-in recorded on this screen at " +
+        now.toLocaleString() +
+        ". No notification has been sent to your contacts."
     );
 }
 
-}
+function toggleSafetyTips() {
+    const button = document.getElementById("tipsButton");
 
-   function showSafetyTips() {
-    let choice = prompt(
-        "💜 AAROH SAFETY TIPS 💜\n\n" +
-        "1. Everyday Safety\n" +
-        "2. Travel Safety\n" +
-        "3. Emergency Safety\n\n" +
-        "Enter 1, 2, or 3:"
-    );
+    tipsPanel.hidden = !tipsPanel.hidden;
 
-    if (choice === "1") {
-        alert(
-            "🌸 EVERYDAY SAFETY\n\n" +
-            "• Stay aware of your surroundings.\n" +
-            "• Avoid sharing personal information with strangers.\n" +
-            "• If you feel unsafe, move to a safe public place.\n" +
-            "• Inform someone you trust when needed."
-        );
-    } 
-    else if (choice === "2") {
-        alert(
-            "🚕 TRAVEL SAFETY\n\n" +
-            "• Share your journey details with someone you trust.\n" +
-            "• Check vehicle and driver details when possible.\n" +
-            "• Avoid waiting alone in isolated places.\n" +
-            "• Keep your phone charged."
-        );
-    } 
-    else if (choice === "3") {
-        alert(
-            "🚨 EMERGENCY SAFETY\n\n" +
-            "• In India, call 112 for emergency assistance.\n" +
-            "• Contact a trusted person.\n" +
-            "• Move to a safer place if possible.\n" +
-            "• Ask nearby people for help when needed."
-        );
-    } 
-    else if (choice !== null) {
-        alert("Please enter 1, 2, or 3.");
+    if (tipsPanel.hidden) {
+        button.textContent = "Show Safety Tips";
+    } else {
+        button.textContent = "Hide Safety Tips";
+        tipsPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
 }
 </script>
