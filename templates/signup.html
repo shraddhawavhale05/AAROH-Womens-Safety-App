@@ -1,0 +1,98 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAROH - Create Account</title><style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #5b21b6, #ec4899);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .card {
+        background: white;
+        width: 100%;
+        max-width: 380px;
+        padding: 30px;
+        border-radius: 20px;
+        box-sizing: border-box;
+        text-align: center;
+        box-shadow: 0 10px 30px #0003;
+    }
+
+    h1 {
+        color: #6d28d9;
+        margin-bottom: 5px;
+    }
+
+    p {
+        color: #666;
+    }
+
+    input {
+        width: 100%;
+        padding: 13px;
+        margin: 9px 0;
+        border: 1px solid #ddd;
+        border-radius: 9px;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        margin-top: 12px;
+        border: none;
+        border-radius: 9px;
+        background: #7c3aed;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    a {
+        color: #7c3aed;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .message {
+        color: #b91c1c;
+        font-size: 14px;
+    }
+</style>
+
+</head><body>
+    <div class="card">
+        <h1>🛡️ AAROH</h1>
+        <p>Create Your Account</p>    {% if error %}
+        <p class="message">{{ error }}</p>
+    {% endif %}
+
+    <form action="/signup" method="POST">
+        <input type="text" name="name"
+               placeholder="Full Name" required>
+
+        <input type="email" name="email"
+               placeholder="Email Address" required>
+
+        <input type="password" name="password"
+               placeholder="Create Password"
+               minlength="8" required>
+
+        <button type="submit">CREATE ACCOUNT</button>
+    </form>
+
+    <p>Already have an account?</p>
+    <a href="/login">Login Here</a>
+</div>
+
+</body>
+</html>
