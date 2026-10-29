@@ -167,7 +167,6 @@
             border: 2px solid #ffdce3;
         }
 
-        .on {
             .sos-button {
     width: 150px;
     height: 150px;
@@ -355,7 +354,14 @@
                 Show Safety Tips
             </button>
         </div>
-
+       <div class="card">
+            <div class="icon">📍</div>
+            <h3>Nearby Safe Places</h3>
+            <p>Find nearby police stations, hospitals and medical stores.</p>
+            <button type="button" onclick="showSafePlaces()">
+                Find Safe Places
+            </button>
+        </div>
     </section>
 
     <section class="panel" id="statusPanel" aria-live="polite">
@@ -395,7 +401,28 @@
             your emergency contacts.
         </p>
     </section>
+<!-- Nearby Safe Places Feature --><section class="panel" id="safePlacesPanel" hidden>
+    <h2>📍 Nearby Safe Places</h2><p>Find nearby places where you can seek help.</p>
 
+<button type="button" onclick="findSafePlace('police station')">
+    🚔 Police Station
+</button>
+
+<button type="button" onclick="findSafePlace('hospital')">
+    🏥 Hospital
+</button>
+
+<button type="button" onclick="findSafePlace('medical store')">
+    💊 Medical Store
+</button>
+
+<button type="button" onclick="findSafePlace('women help centre')">
+    🛡️ Women Help Centre
+</button>
+
+<p id="safePlaceStatus" aria-live="polite"></p>
+
+</section>
     <section class="panel" id="tipsPanel" hidden>
         <h2>🛡️ Personal Safety Tips</h2>
         <ul class="tips">
@@ -708,6 +735,46 @@ function toggleSafetyTips() {
         button.textContent = "Hide Safety Tips";
         tipsPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
+}
+function findSafePlace(placeType) {
+    const status = document.getElementById("safePlaceStatus");
+
+    if (!navigator.geolocation) {
+        status.textContent = "Location is not supported by this browser.";
+        return;
+    }
+
+    status.textContent = "Getting your location...";
+
+    navigator.geolocation.getCurrentPosition(
+        function (position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+
+            const query = encodeURIComponent(placeType);
+
+            const mapUrl =
+                `https://www.google.com/maps/search/${query}/@${latitude},${longitude},14z`;
+
+            status.textContent = "Opening Google Maps...";
+            window.open(mapUrl, "_blank");
+        },
+        function () {
+            status.textContent =
+                "Location unavailable. Please allow location access.";
+        }
+    );
+}
+function showSafePlaces() {
+    hidePanels();
+
+    const panel = document.getElementById("safePlacesPanel");
+    panel.hidden = false;
+
+    panel.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+    });
 }
 </script>
 
